@@ -1,4 +1,3 @@
-
 <!doctype html>
 <html lang="en">
   <head>
@@ -8,7 +7,7 @@
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Jekyll v3.8.5">
-    <title>Nepolean Ramesvaran</title>
+    <title>Nepolean's Blog</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/album/">
 
@@ -47,7 +46,7 @@
             <!-- <a class="nav-item nav-link active" href="#">Twitter <span class="sr-only">(current)</span></a> -->
             <a class="nav-item nav-link" href="#">Twitter</a>
             <a class="nav-item nav-link" href="{% static 'resume' %}">Resume</a>
-            <a class="nav-item nav-link" href="{% url 'allblogs' %}">Blog</a>
+            <a class="nav-item nav-link active" href="{% url 'allblogs' %}">Blog</a>
             <!-- <a class="nav-item nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a> -->
           </div>
         </div>
@@ -55,45 +54,22 @@
 </header>
 
 <main role="main">
+  <div class="container">
+    <h1 class="text-center pt-3"> Welcome to Nepolean's Blog </h1>
+    <br>
+    <br>
+    <h2>Latest Posts</h2>
+    <hr>
 
-  <section class="jumbotron text-center">
-    <div class="container">
-      <h1 class="jumbotron-heading">Hi, I am Nepolean</h1>
-      <p class="lead text-muted">I love to construct websites on the Interwebz and Django is my weapon of choice. "Can we build it? Yes, we can!"</p>
-      <p>
-        <a href="mailto:nepoleanr.apple@gmail.com" class="btn btn-primary my-2">Email me</a>
-        <!-- <a href="#" class="btn btn-secondary my-2">Secondary action</a> -->
-      </p>
-      <img src="{% static 'DSC_0099 copy.jpg' %}" height="300" width="200" alt="">
-    </div>
-  </section>
-
-  <div class="album py-5 bg-light">
-    <div class="container">
-
-      <div class="row">
-
-        {% for job in jobs.all %}
-        <div class="col-md-4">
-          <div class="card mb-4 box-shadow">
-            <img class="card-img-top" src=" {{ job.image.url}}">
-            <div class="card-body">
-              <p class="card-text"> {{job.summary}}</p>
-              <!-- <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-                  <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                  <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-                </div>
-                <small class="text-muted">9 mins</small>
-              </div> -->
-            </div>
-          </div>
-        </div>
-        {% endfor %}
-       
-      </div>
-    </div>
-  </div>
+    {% for blog in blogs.all %}
+    <a href="{% url 'detail' blog.id  %}"> <h3>{{ blog.title }}</h3> </a>
+    {{ blog.pub_date_pretty }}
+    <br>
+    <img class="img-fluid" src="{{ blog.image.url }}" height=200 width=200 alt="">
+    <br>
+    <p> {{ blog.summary }} </p>
+    {% endfor%}
+  </div> 
 
 </main>
 
