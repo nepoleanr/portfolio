@@ -135,6 +135,6 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media') # creates a folder called media for
 MEDIA_URL = '/media/' # the url under which the images could be found
 
 try:
-    from local_settings import *
+    from .local_settings import *
 except ImportError:
     pass
