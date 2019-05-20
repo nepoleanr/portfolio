@@ -80,7 +80,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'portfoliodb',
         'USER': 'postgres',
-        'PASSWORD': 'cognizant',
+        'PASSWORD': '', # This field previously had a hardcoded password. But I am removing it for the github upload
         'HOST': '127.0.0.1',
         'PORT': '5432',
         #'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
